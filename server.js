@@ -3,33 +3,33 @@ const fs = require("fs");
 const path = require("path");
 
 const fileReader = require("./fileReader");
+const filePath = path.join(`${__dirname}/pkgs.json`);
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const port = 5500;
+const port = 9000;
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(`${__dirname}/..homepage.html`));
+    res.sendFile(path.join(`${__dirname}/homepage.html`));
 });
 
-app.get("/api/package", async (req, res) => {
-  const fileData = await fileReader(path.join(`${__dirname}/pkgs.json`));
+app.get("/api/allergens", async (req, res) => {
+    const fileData = await fileReader(`${__dirname}/allergens.json`);
+    const data = JSON.parse(fileData)
+    res.send(data.allergens)
+  });
 
-  console.log(JSON.parse(fileData));
+app.get("/api/pizza", async (req, res) => {
+    const fileData = await fileReader(`${__dirname}/pizza.json`);
+    const data = JSON.parse(fileData)
+    res.send(data)
+  });
 
-  // console.log(fileData.toString());
-  res.send(JSON.parse(fileData));
-  // res.send(fileData.toString());
-});
+app.get("/pizza/list", async (req, res) => {
+    res.sendFile(path.join(`${__dirname}/pizzaList.html`));
+  });
 
-app.get(`/api/package/${id}`, async (req, res) => {
-  const fileData = await fileReader(path.join(`${__dirname}/pkgs.json`));
-  // fileData.forEach(element=>console.log(element))
-  console.log(JSON.parse(fileData).packages[id]);
-  // console.log(typeof fileData[0].toString());
-  res.send(JSON.parse(fileData).packages[id]);
-  // res.send(fileData[0].toString());
-});
+app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));
