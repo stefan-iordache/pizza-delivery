@@ -3,12 +3,12 @@ const fs = require("fs");
 const path = require("path");
 
 const fileReader = require("./fileReader");
-const filePath = path.join(`${__dirname}/pkgs.json`);
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(__dirname))
 
 const port = 9000;
 
