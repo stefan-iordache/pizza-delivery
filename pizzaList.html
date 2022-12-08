@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src = "../pizzaList.js"></script>
+    <script type="module" src = "../pizzaList.js" defer></script>
+    <script src = "../pizza.json" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <p>Select the allergens: </p>
-    <input type="text">
+        <input id="input" type="search" placeholder="Search Something Here"/>
+        <button id="filterBtn">Search</button>
+    <form action="/pizza/list" method="POST" id="form">
+        
+            <button type="submit" id="submit"><a href="http://127.0.0.1:9000/form">Submit order</a></button>
+        
+    </form>
+        <div class="listing-section" id="mainComponents"></div>
     
 </body>
 </html>

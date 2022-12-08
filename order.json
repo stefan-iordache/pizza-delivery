@@ -1,0 +1,15 @@
+{"orders":{
+  "id": 0,
+  "pizzas": [],
+  "customer": {
+    "customer": {
+      "firstname": "Iordache",
+      "lastname": "Stefan",
+      "email": "stefaniordache472@gmail.com",
+      "address": [
+        "Ion Minulescu Nr 44 Sector 3 Ap 1",
+        "Bucharest"
+      ]
+    }
+  }
+}}
