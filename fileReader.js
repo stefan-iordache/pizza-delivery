@@ -1,5 +1,7 @@
 const { readFile } = require('fs/promises');
 
+filePath =`${__dirname}/orders.json`;
+
 module.exports = async (filePath) => {
 	try {
 		return await readFile(filePath);

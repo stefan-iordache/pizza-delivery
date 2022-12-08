@@ -5,7 +5,6 @@ const submit = document.getElementById("submit")
 const form = document.getElementById("form")
 
 
-
 let orderedPizzas = [];
 
 
@@ -64,17 +63,17 @@ fetch('../pizza.json')
         //form.appendChild(product)
     });
     
-    /* filterButton.addEventListener("click",()=>{
+    filterButton.addEventListener("click",()=>{
         let arr=input.value.split(" ")
         console.log(arr);
         pizzaList.forEach(pizza=>{
             let res = pizza.allergens.filter(allergen => arr.includes(allergen.toString()));
             if(res.length===arr.length || arr[0]==="")
-                list.childNodes[pizza.id].classList.remove("hide");
+                console.log("show");
                 else
-                    list.childNodes[pizza.id].classList.add("hide");
+                console.log("hide");
         })
-    }) */
+    })
     
 })  
 

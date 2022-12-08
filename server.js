@@ -13,6 +13,7 @@ app.use(express.static(__dirname))
 const port = 9000;
 
 
+let finalOrder = { "id" : 0, "pizzas" : [], "customer" : {}}
 let id = 0
 let order = []
 let date = {}
@@ -40,31 +41,37 @@ app.get("/api/order", (req, res) => {
   res.sendFile(path.join(`${__dirname}/order.json`));
 });
 
-//JSON.stringify(test, null, 2)
-app.post("/order", async (req, res) => {
-  fs.writeFileSync(`${__dirname}/order.json`, "{\"orders\":"+ {} + "}");
-  res.sendFile(path.join(`${__dirname}/order.json`));
-}); 
-
-app.post("/pizza/list", async (req, res) => {
-  order = req.body
-  id++
-  console.log(order)
-});
 
 app.get("/pizza/list", (req, res) => {
     res.sendFile(path.join(`${__dirname}/pizzaList.html`));
+});
+
+app.post("/pizza/list", (req, res) => {
+  let jsonParse = JSON.parse(req.body.pizzas)
+  jsonParse.map( (pizza) => {
+    if (pizza.amount != 0) order.push(pizza)
+  });
+  id++
+  let tempOrder = {"id" : id, "pizzas" : order}
+  
+  fs.writeFileSync(`${__dirname}/order.json`, JSON.stringify(tempOrder, null, 2))
+  res.sendFile(path.join(`${__dirname}/form.html`));
 });
 
 app.get("/form", (req, res) => {
   res.sendFile(path.join(`${__dirname}/form.html`));
 });
 
-app.post("/form", (req, res) => {
-  customer.customer = req.body
-  let tempOrder = {"id" : id, "pizzas" : order, "customer" : customer}
-  console.log(tempOrder);
-  fs.writeFileSync(`${__dirname}/order.json`, "{\"orders\":" + JSON.stringify(tempOrder, null, 2) +"}")
+// "{\"orders\":" + JSON.stringify(tempOrder, null, 2) +"}"
+app.post("/form", async (req, res) => {
+  const fileData = await fileReader(`${__dirname}/order.json`);
+  const data = JSON.parse(fileData)
+  customer = req.body
+  finalOrder.id = id
+  finalOrder.pizzas = data.pizzas
+  finalOrder.customer = customer
+  fs.writeFileSync(`${__dirname}/order.json`, "{\" orders\":" + JSON.stringify(finalOrder) + "}")
+  res.sendFile(path.join(`${__dirname}/order.json`));
 });
 
 app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));
