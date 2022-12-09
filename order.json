@@ -1,1 +1,1 @@
-{" orders":{"id":1,"pizzas":[{"id":2,"amount":2},{"id":8,"amount":2}],"customer":{"firstname":"ab","lastname":"cd","email":"","address street":"a","address city":"a"}}}
+{" orders":{"id":1,"pizzas":[{"id":1,"amount":3}],"date":{"year":2022,"month":11,"day":9,"hour":9,"minute":25},"customer":{"firstname":"Iordache","lastname":"Stefan","email":"stefaniordache472@gmail.com","address street":"Ion Minulescu Nr 44 Sector 3 Ap 1","address city":"Bucharest"}}}

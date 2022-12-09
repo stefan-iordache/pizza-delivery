@@ -13,7 +13,7 @@ app.use(express.static(__dirname))
 const port = 9000;
 
 
-let finalOrder = { "id" : 0, "pizzas" : [], "customer" : {}}
+let finalOrder = { "id" : 0, "pizzas" : [], "date" : {}, "customer" : {}}
 let id = 0
 let order = []
 let date = {}
@@ -65,13 +65,18 @@ app.get("/form", (req, res) => {
 app.post("/form", async (req, res) => {
   const fileData = await fileReader(`${__dirname}/order.json`);
   const data = JSON.parse(fileData);
+  const d = new Date();
+  let dateObj = {"year" : d.getFullYear(), "month" : d.getMonth(), "day" : d.getDate(), "hour" : d.getHours(), "minute" : d.getMinutes()}
   customer = req.body
   finalOrder.id = data.id
   finalOrder.pizzas = data.pizzas
+  finalOrder.date = dateObj
   finalOrder.customer = customer
-  console.log(finalOrder)
   fs.writeFileSync(`${__dirname}/order.json`, "{\" orders\":" + JSON.stringify(finalOrder) + "}")
   res.sendFile(path.join(`${__dirname}/order.json`));
 });
+
+
+
 
 app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));
