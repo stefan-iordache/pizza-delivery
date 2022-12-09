@@ -49,7 +49,7 @@
   },
   {
     "id": 4,
-    "name": "Quatro Fromage",
+    "name": "Quatro Formaggi",
     "ingredients": [
       "San Marzano tomato sauce",
       "garlic",
@@ -108,22 +108,6 @@
     "allergens": [
       1,
       3,
-      9
-    ]
-  },
-  {
-    "id": 8,
-    "name": "Quatro Stagioni",
-    "ingredients": [
-      "San Marzano tomato sauce",
-      "garlic",
-      "oregano",
-      "olive oil"
-    ],
-    "price": 3200,
-    "allergens": [
-      7,
-      2,
       9
     ]
   }

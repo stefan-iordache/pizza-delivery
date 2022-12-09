@@ -22,7 +22,7 @@ fetch('../pizza.json')
 
         let img = document.createElement("div");
         img.setAttribute("class", "images");
-        img.setAttribute("id", `images-${pizza.id}`);
+        img.setAttribute("id", `image-${pizza.id}`);
         imgbox.appendChild(img);
         product.appendChild(imgbox);
 
