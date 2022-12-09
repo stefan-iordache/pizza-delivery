@@ -3,7 +3,7 @@ const root = document.getElementById("mainComponents")
 const filterButton = document.getElementById("filterBtn")
 const submit = document.getElementById("submit")
 const form = document.getElementById("form")
-
+submit.classList.add("hide")
 
 let orderedPizzas = [];
 
@@ -33,6 +33,15 @@ fetch('../pizza.json')
         name.setAttribute("class", "item");
         name.innerText = pizza.name
 
+        let description = document.createElement("p");
+        description.setAttribute("class", "item");
+        description.innerText=pizza.ingredients.toString();
+
+        let quantity=document.createElement("h3");
+        quantity.setAttribute("class", "item");
+        quantity.innerText=`Quantity: 0`
+
+
         let removeBtn = document.createElement("button");
         removeBtn.innerText = "Remove from Cart";
 
@@ -40,23 +49,27 @@ fetch('../pizza.json')
         addBtn.innerText = "Add to Cart";
 
 
-
-
         let numberOfPizza = document.createElement("p");
         numberOfPizza.innerText = "";
 
         addBtn.addEventListener("click",()=>{
-            orderedPizzas[pizza.id-1].amount++;
-            console.log(orderedPizzas)
+            quantity.innerText=`Quantity: ${++orderedPizzas[pizza.id-1].amount}`
+            submit.classList.remove("hide")
         })
 
         removeBtn.addEventListener("click",()=>{
-            orderedPizzas[pizza.id-1].amount>=1?orderedPizzas[pizza.id-1].amount--:null;
-            console.log(orderedPizzas)
+            orderedPizzas[pizza.id-1].amount>=1
+            ?quantity.innerText=`Quantity: ${--orderedPizzas[pizza.id-1].amount}`
+            :null
+            orderedPizzas.find((pizza)=>pizza.amount>0)===undefined
+            ?submit.classList.add("hide")
+            :null
         })
         txtbox.appendChild(name);
+        txtbox.appendChild(description);
         txtbox.appendChild(addBtn);
         txtbox.appendChild(removeBtn);
+        txtbox.appendChild(quantity);
         product.appendChild(txtbox);
         root.appendChild(product);
         
@@ -66,12 +79,15 @@ fetch('../pizza.json')
     filterButton.addEventListener("click",()=>{
         let arr=input.value.split(" ")
         console.log(arr);
+        console.log(root.childNodes[0]);
         pizzaList.forEach(pizza=>{
             let res = pizza.allergens.filter(allergen => arr.includes(allergen.toString()));
             if(res.length===arr.length || arr[0]==="")
-                console.log("show");
+                root.childNodes[pizza.id-1].classList.remove("hide")
+                
                 else
-                console.log("hide");
+                root.childNodes[pizza.id-1].classList.add("hide")
+                
         })
     })
     

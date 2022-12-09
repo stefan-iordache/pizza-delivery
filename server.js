@@ -51,8 +51,7 @@ app.post("/pizza/list", (req, res) => {
   jsonParse.map( (pizza) => {
     if (pizza.amount != 0) order.push(pizza)
   });
-  id++
-  let tempOrder = {"id" : id, "pizzas" : order}
+  let tempOrder = {"id" : ++id, "pizzas" : order}
   
   fs.writeFileSync(`${__dirname}/order.json`, JSON.stringify(tempOrder, null, 2))
   res.sendFile(path.join(`${__dirname}/form.html`));
@@ -65,11 +64,12 @@ app.get("/form", (req, res) => {
 // "{\"orders\":" + JSON.stringify(tempOrder, null, 2) +"}"
 app.post("/form", async (req, res) => {
   const fileData = await fileReader(`${__dirname}/order.json`);
-  const data = JSON.parse(fileData)
+  const data = JSON.parse(fileData);
   customer = req.body
-  finalOrder.id = id
+  finalOrder.id = data.id
   finalOrder.pizzas = data.pizzas
   finalOrder.customer = customer
+  console.log(finalOrder)
   fs.writeFileSync(`${__dirname}/order.json`, "{\" orders\":" + JSON.stringify(finalOrder) + "}")
   res.sendFile(path.join(`${__dirname}/order.json`));
 });

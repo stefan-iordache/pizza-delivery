@@ -153,7 +153,15 @@ h2, h3 {
   margin: 0.2em auto;
   color:azure;
 }
-
+p {
+  float: left;
+  font-family: 	
+'Bahnschrift';
+  font-weight: 400;
+  text-transform: lowercase;
+  margin: 0.2em auto;
+  color:azure;
+}
 .item, .price {
   clear: left;
   width: 100%;
@@ -343,3 +351,7 @@ button:active {
   color: Black;
 }  
 
+.hide{
+  display:none;
+
+}
