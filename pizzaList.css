@@ -44,7 +44,7 @@ body{
 		box-shadow:2px 2px 12px rgba(0,0,0,0.2);}
 		.text input[type=search]{
 			border:none;
-			background-color:transparent;
+			background-color:red;
 			color:#000000;
 			text-align:center;
 			outline:none;}
@@ -354,4 +354,7 @@ button:active {
 .hide{
   display:none;
 
+}
+.special-class{
+  color:black;
 }
