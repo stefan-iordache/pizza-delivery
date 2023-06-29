@@ -1,9 +1,1 @@
-{
-  "id": 1,
-  "pizzas": [
-    {
-      "id": 1,
-      "amount": 1
-    }
-  ]
-}
+{" orders":{"id":1,"pizzas":[{"id":6,"amount":1},{"id":7,"amount":1}],"date":{"year":2023,"month":5,"day":29,"hour":17,"minute":8},"customer":{"firstname":"Stefan","lastname":"Iordache","email":"stefaniordache472@gmail.com","address street":"Ion Minulescu Nr 44 Sector 3","address city":"Bucharest"}}}

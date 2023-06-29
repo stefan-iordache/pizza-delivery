@@ -324,3 +324,17 @@ a{
 .new,.search,.order,.food-one,.food-two,.food-three,.breakfast,.flavor{
 	border-radius:5px;
 }
+
+.navigation-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .pizza-delivery-link {
+	color: #FFFFFF;
+	font-size: 35px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+  }

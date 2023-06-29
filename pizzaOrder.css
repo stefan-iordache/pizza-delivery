@@ -4,6 +4,8 @@ body{
   font-size:25px;
   background-image:url(./images/bg2.png);
   background-size:cover;
+  width: 40vw;
+  left: 30vw;
 }
 h1{
   font-family:Cabin Sketch;
@@ -23,7 +25,7 @@ form{
  float:center;
 }
 input{
-  font-family:Waiting for the Sunrise;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size:25px;
   font-weight:bold;
   color:black
