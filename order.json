@@ -1,1 +1,9 @@
-{" orders":{"id":1,"pizzas":[{"id":1,"amount":1}],"date":{"year":2022,"month":11,"day":9,"hour":9,"minute":47},"customer":{"firstname":"","lastname":"","email":"","address street":"","address city":""}}}
+{
+  "id": 1,
+  "pizzas": [
+    {
+      "id": 1,
+      "amount": 1
+    }
+  ]
+}

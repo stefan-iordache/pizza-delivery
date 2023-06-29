@@ -48,6 +48,7 @@ app.get("/pizza/list", (req, res) => {
 
 app.post("/pizza/list", (req, res) => {
   let jsonParse = JSON.parse(req.body.pizzas)
+  console.log(JSON.stringify(req.body))
   jsonParse.map( (pizza) => {
     if (pizza.amount != 0) order.push(pizza)
   });
