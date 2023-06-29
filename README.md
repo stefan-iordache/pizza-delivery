@@ -2,6 +2,5 @@ This is a pizza delivery platform with features like filtering the products by a
 
 Technologies used: Express.js, JavaScript
 
-![image](https://github.com/CodecoolGlobal/pizza-order-prototype-javascript-stefan-iordache/assets/20901776/87fe2b69-0444-4a34-a95e-27185364ecdf)
-![image](https://github.com/CodecoolGlobal/pizza-order-prototype-javascript-stefan-iordache/assets/20901776/8950c50b-1909-4b2f-a342-27597c2b7215)
-
+![image](https://github.com/stefan-iordache/pizza-delivery/assets/20901776/8536ce38-eb61-44be-bab4-c8edeccdb0ea)
+![image](https://github.com/stefan-iordache/pizza-delivery/assets/20901776/c08afaec-6a13-49ea-bc8e-d96480e8fa1c)
